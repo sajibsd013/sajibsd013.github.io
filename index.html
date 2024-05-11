@@ -53,6 +53,9 @@
           <a class="nav-link js-scroll-trigger" href="#education">Education</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
         </li>
         <li class="nav-item">
@@ -126,7 +129,7 @@
               solutions for different industrial sectors: Manufacturing industry, Welding Materials, and coating
               development, Waste Heat Recovery, and Renewable Energy. Environmental Analysis ISO 14040 & ISO 14044
             </p>
-  
+
             <p class="fw-bold">Tech Stack: Python, Django, NuxtJS, Odoo</p>
 
 
@@ -178,6 +181,17 @@
 
       </div>
     </section>
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">
+      <div class="my-auto">
+        <h2 class="mb-5">Projects</h2>
+        <div id="ProjectDetails">
+          <!-- Repo details will be displayed here -->
+        </div>
+
+      </div>
+    </section>
+
+
 
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
       <div class="my-auto">
@@ -214,13 +228,13 @@
             <i class="devicon-nuxtjs-plain-wordmark colored"></i>
           </li>
           <li class="list-inline-item">
-           
+
             <i class="devicon-java-plain-wordmark colored"></i>
-          
+
           </li>
           <li class="list-inline-item">
             <i class="devicon-mysql-plain-wordmark colored"></i>
-          
+
           </li>
           <li class="list-inline-item">
             <i class="devicon-postgresql-plain-wordmark colored"></i>
@@ -258,52 +272,59 @@
         </ul>
       </div>
     </section>
-    <!-- 
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column d-none" id="interests">
-        <div class="my-auto">
-          <h2 class="mb-5">Interests</h2>
-          <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skiier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-          <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technolgy advancements in the front-end web development world.</p>
-        </div>
-      </section>
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column d-none" id="awards">
-        <div class="my-auto">
-          <h2 class="mb-5">Awards &amp; Certifications</h2>
-          <ul class="fa-ul mb-0">
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              Google Analytics Certified Developer</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              Mobile Web Specialist - Google Certification</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              1<sup>st</sup>
-              Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              1<sup>st</sup>
-              Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              2<sup>nd</sup>
-              Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
-            <li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              1<sup>st</sup>
-              Place - James Buchanan High School - Hackathon 2006</li>
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              3<sup>rd</sup>
-              Place - James Buchanan High School - Hackathon 2005</li>
-          </ul>
-        </div>
-      </section> -->
 
   </div>
 
+  <script>
+    // Function to fetch repository details
+    function fetchRepoDetails(repo, name) {
+      fetch(`https://api.github.com/repos/sajibsd013/${repo}`)
+        .then(response => response.json())
+        .then(data => {
+          const parentElement = document.getElementById('ProjectDetails'); // Replace 'parentElementId' with the actual ID of the parent element
+
+          // Create a new div element to contain the generated HTML content
+          const div = document.createElement('div');
+
+          // Set the innerHTML of the new div element to the generated HTML content
+          div.innerHTML = `
+    <div class="resume-item d-flex flex-column flex-md-row mb-4">
+        <div class="resume-content mr-auto col-md-9">
+            <h5 class="subheading mb-1">${name}</h5>
+            <p class="mb-2" style="font-size: 15px;">${data.description}</p>
+            <p class="small fw-bold ">SKILLS: ${data.topics.map(topic => topic.toUpperCase())}</p>
+            <div class="my-1 d-flex">
+                <a href="${data.html_url}" class="h4 mx-2 d-block" target="_blank">
+                    <i class="devicon-github-original colored"></i>
+                </a>
+                <a href="${data.homepage}" class="h4 mx-2 d-block" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="22" height="22"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M326.6 185.4c59.7 59.8 58.9 155.7 .4 214.6-.1 .1-.2 .3-.4 .4l-67.2 67.2c-59.3 59.3-155.7 59.3-215 0-59.3-59.3-59.3-155.7 0-215l37.1-37.1c9.8-9.8 26.8-3.3 27.3 10.6 .6 17.7 3.8 35.5 9.7 52.7 2 5.8 .6 12.3-3.8 16.6l-13.1 13.1c-28 28-28.9 73.7-1.2 102 28 28.6 74.1 28.7 102.3 .5l67.2-67.2c28.2-28.2 28.1-73.8 0-101.8-3.7-3.7-7.4-6.6-10.3-8.6a16 16 0 0 1 -6.9-12.6c-.4-10.6 3.3-21.5 11.7-29.8l21.1-21.1c5.5-5.5 14.2-6.2 20.6-1.7a152.5 152.5 0 0 1 20.5 17.2zM467.5 44.4c-59.3-59.3-155.7-59.3-215 0l-67.2 67.2c-.1 .1-.3 .3-.4 .4-58.6 58.9-59.4 154.8 .4 214.6a152.5 152.5 0 0 0 20.5 17.2c6.4 4.5 15.1 3.8 20.6-1.7l21.1-21.1c8.4-8.4 12.1-19.2 11.7-29.8a16 16 0 0 0 -6.9-12.6c-2.9-2-6.6-4.9-10.3-8.6-28.1-28.1-28.2-73.6 0-101.8l67.2-67.2c28.2-28.2 74.3-28.1 102.3 .5 27.8 28.3 26.9 73.9-1.2 102l-13.1 13.1c-4.4 4.4-5.8 10.8-3.8 16.6 5.9 17.2 9 35 9.7 52.7 .5 13.9 17.5 20.4 27.3 10.6l37.1-37.1c59.3-59.3 59.3-155.7 0-215z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+`;
+
+          // Append the new div element containing the HTML content to the parent element
+          parentElement.appendChild(div);
+        })
+        .catch(error => console.error('Error fetching repository details:', error));
+    }
+
+    // Call the function with your GitHub username and repository name
+
+    const repo_list = {
+      "e_pharma_api": "sasthosebok.com (Digital Healthcare Services)",
+      "bdhousing_frontend": "Bangladesh Tax Digitization",
+      "E-Learning": "E-Learning Platform",
+      "Sorting-App": "File Sorting Application",
+      "draggable-ui-work": "Draggable CV Builder"
+    }
+    for (let repo in repo_list) {
+      fetchRepoDetails(repo, repo_list[repo]);
+    }
+
+  </script>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
