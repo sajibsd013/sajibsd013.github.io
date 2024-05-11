@@ -25,6 +25,7 @@
 
   <!-- Custom styles for this template -->
   <link href="css/resume.min.css" rel="stylesheet">
+  <link rel="icon" href="./img/profile.jpg" type="image/x-icon">
 
 </head>
 
@@ -292,7 +293,7 @@
         <div class="resume-content mr-auto col-md-9">
             <h5 class="subheading mb-1">${name}</h5>
             <p class="mb-2" style="font-size: 15px;">${data.description}</p>
-            <p class="small fw-bold ">SKILLS: ${data.topics.map(topic => topic.toUpperCase())}</p>
+            <p class="small fw-bold ">SKILLS: ${data.topics.map(topic => " "+topic.toUpperCase() )}</p>
             <div class="my-1 d-flex">
                 <a href="${data.html_url}" class="h4 mx-2 d-block" target="_blank">
                     <i class="devicon-github-original colored"></i>
