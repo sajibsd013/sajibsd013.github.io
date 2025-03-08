@@ -295,12 +295,11 @@
 
 
     const technicalSkills = {
-      programmingLanguages: ["Python", "JavaScript", "Go", "PHP"],
-      webFrameworks: ["Django", "NuxtJS", "Vue.js", "React", "NextJS"],
-      databaseManagement: ["MySQL", "SQLite"],
-      toolsPlatforms: ["Odoo", "Git", "GitHub", "Docker"],
-      ciCd: ["Basic understanding and implementation"],
-      softSkills: ["Team collaboration", "Problem-solving", "Effective communication"]
+      programming_Languages: ["Python", "JavaScript", "Go", "PHP"],
+      web_Frameworks: ["Django", "NuxtJS", "Vue.js", "React", "NextJS"],
+      database_Management: ["MySQL", "SQLite"],
+      tools_and_Platforms: ["Odoo", "Git", "GitHub", "Docker"],
+      softS_kills: ["Team collaboration", "Problem-solving", "Effective communication"]
     };
 
     const skillsSection = document.getElementById('skillsSection');
@@ -313,7 +312,9 @@
 
         // Create and append the category title
         const categoryTitle = document.createElement('h3');
-        categoryTitle.textContent = category.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        // categoryTitle.textContent = category.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        categoryTitle.textContent = category.replace(/_/g, ' ').replace(/([A-Z])/g, '$1').replace(/^./, str => str.toUpperCase());
+
         categoryDiv.appendChild(categoryTitle);
 
         // Create and append the list of skills
