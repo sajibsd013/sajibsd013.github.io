@@ -78,7 +78,7 @@
           <a href="mailto:sajibsd013@gmail.com">sajibsd013@gmail.com</a>
         </div>
         <p class="mb-5">
-          I'm a dedicated <b>Software Engineer</b> with over 2 years of experience specializing in Python and
+          I'm a dedicated <b>Software Engineer</b> with over 3 years of experience specializing in Python and
           JavaScript. My expertise lies in developing scalable web applications using frameworks like Django and NuxtJS.
           Currently, I'm contributing to innovative software solutions across various industrial sectors at Indetechs
           Software Ltd.
@@ -143,7 +143,7 @@
               <li>
                 Participate in code reviews, ensuring adherence to best practices and coding standards.
               </li>
-
+            </ul>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">June 2022 - Present</span>
@@ -162,7 +162,7 @@
               <li>
                 Trained 50+ students, improving their problem-solving and coding skills.
               </li>
-
+            </ul>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">September 2024 - November 2024</span>
@@ -183,6 +183,12 @@
             <div class="subheading mb-3">
               Shahjalal University of Science & Technology (SUST), Sylhet, Bangladesh
             </div>
+            <ul>
+              <li>
+                Reseach Topic: Smart Prescription System for Efficient Doctor-Patient Interaction
+              </li>
+            </ul>
+
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">2024 - Present</span>
@@ -194,6 +200,12 @@
             <div class="subheading mb-3">
               North East University Bangladesh, Sylhet, Bangladesh
             </div>
+            <ul>
+              <li>
+                Final Year Project: <a href="https://sasthosebok.com/" target="_blank">SASTHOSEBOK.COM - a Healthcare
+                  Platform</a>
+              </li>
+            </ul>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">2019 - 2023</span>
@@ -227,6 +239,16 @@
   <script>
     const projects = [
       {
+        name: "COREWORKERS UK",
+        technologies: ["Django", "NuxtJS", "MySQL"],
+        description: [
+          "Core Workers UK is a platform that helps workers find jobs in the UK.",
+          "It provides a job portal for workers to find jobs and a dashboard for employers to post jobs and manage applications.",
+          "It also provides a dashboard for workers to manage their applications and a dashboard for employers to manage their jobs."
+        ],
+        link: "https://coreworkersuk.com/"
+      },
+      {
         name: "SASTHOSEBOK.COM",
         technologies: ["Django", "NuxtJS", "SQLite"],
         description: [
@@ -234,6 +256,25 @@
           "Launched a mobile application, available on the Google Play Store, extending services to mobile users."
         ],
         link: "https://sasthosebok.com/"
+      },
+      {
+        name: "BD Holding Tax Digitalizing",
+        role: "Full-Stack Developer",
+        technologies: ["Django", "NuxtJS", "SQLite", "React Native"],
+        description: [
+          "BD Holding Tax Digitalizing helps local volunteers in Bangladesh manage and organize holding tax information more efficiently.",
+        ],
+        link: "https://bdholdingtaxdigitalizing.com/"
+      },
+
+      {
+        name: "File Sorting Application",
+        technologies: ["Tkinter ", "Python", "SQLite"],
+        description: [
+          "Developed an application that organizes files based on their extensions, sorting them into categories such as images, documents, archives, and others.",
+          "Implemented both client-side and server-side sorting mechanisms to ensure efficient file management across different platforms."
+        ],
+        link: "https://github.com/yourusername/file-sorting-application"
       },
       {
         name: "Bangladesh Tax Digitization",
@@ -245,15 +286,6 @@
           "Provided a mobile application for volunteers to collect data for holding taxes."
         ],
         link: "https://bdhousingtax.com/"
-      },
-      {
-        name: "File Sorting Application",
-        technologies: ["Tkinter ", "Python", "SQLite"],
-        description: [
-          "Developed an application that organizes files based on their extensions, sorting them into categories such as images, documents, archives, and others.",
-          "Implemented both client-side and server-side sorting mechanisms to ensure efficient file management across different platforms."
-        ],
-        link: "https://github.com/yourusername/file-sorting-application"
       },
 
       {
@@ -286,7 +318,7 @@
       projectElement.innerHTML = `
               <h3>${project.name}</h3>
               <p><strong>Technologies:</strong> <span class="tech">${project.technologies.join(", ")}</span></p>
-              <p>${project.description.join(" ")}</p>
+              <ul>${project.description.map(desc => `<li>${desc}</li>`).join("")}</ul>
               ${project.link ? `<p><a href="${project.link}" target="_blank">View Project</a></p>` : ""}
           `;
 
