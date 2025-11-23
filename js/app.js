@@ -35,57 +35,52 @@ class PortfolioApp {
         // Projects Data
         this.state.projects = [
             {
-                name: "COREWORKERS UK",
-                category: "web",
-                technologies: ["Django", "NuxtJS", "MySQL"],
+                name: "COREWORKERS UK - Job Portal",
+                category: ["web", "mobile"],
+                technologies: ["Django", "NuxtJS", "MySQL", "React Native"],
                 description: [
                     "Core Workers UK is a platform that helps workers find jobs in the UK.",
                     "It provides a job portal for workers to find jobs and a dashboard for employers to post jobs and manage applications.",
                     "It also provides a dashboard for workers to manage their applications and a dashboard for employers to manage their jobs."
                 ],
-                link: "https://coreworkersuk.com/",
-                featured: true,
-                icon: "fa-briefcase"
+                webLink: "https://coreworkersuk.com/",
+                mobileLink: "https://play.google.com/store/apps/details?id=com.creativise.coreworkersuk",
             },
             {
-                name: "SASTHOSEBOK.COM",
-                category: "web",
-                technologies: ["Django", "NuxtJS", "SQLite"],
+                name: "SASTHOSEBOK.COM - Online Healthcare Platform",
+                category: ["web", "mobile"],
+                technologies: ["Django", "NuxtJS", "SQLite", "React Native"],
                 description: [
                     "Developed an online healthcare platform offering services such as specialist doctor appointments, home nursing, and diagnostic tests.",
                     "Launched a mobile application, available on the Google Play Store, extending services to mobile users."
                 ],
-                link: "https://sasthosebok.com/",
-                featured: true,
-                icon: "fa-heartbeat"
+                webLink: "https://sasthosebok.com/",
+                mobileLink: "https://play.google.com/store/apps/details?id=com.sajibsd013.app",
             },
             {
-                name: "BD Holding Tax Digitalizing",
-                category: "web",
+                name: "BD Holding Tax Digitalizing - Tax Collection Platform",
+                category: ["web", "mobile"],
                 role: "Full-Stack Developer",
                 technologies: ["Django", "NuxtJS", "SQLite", "React Native"],
                 description: [
                     "BD Holding Tax Digitalizing helps local volunteers in Bangladesh manage and organize holding tax information more efficiently.",
                 ],
-                link: "https://bdholdingtaxdigitalizing.com/",
-                featured: false,
-                icon: "fa-file-text"
+                webLink: "https://bdholdingtaxdigitalizing.com/",
+                mobileLink: "https://play.google.com/store/apps/details?id=com.creativise.bdholdingtaxdigitalizing",
             },
             {
                 name: "File Sorting Application",
-                category: "desktop",
+                category: ["desktop"],
                 technologies: ["Tkinter", "Python", "SQLite"],
                 description: [
                     "Developed an application that organizes files based on their extensions, sorting them into categories such as images, documents, archives, and others.",
                     "Implemented both client-side and server-side sorting mechanisms to ensure efficient file management across different platforms."
                 ],
-                link: "https://github.com/sajibsd013/Sorting-App",
-                featured: false,
-                icon: "fa-folder-open"
+                gitLink: "https://github.com/sajibsd013/Sorting-App",
             },
             {
-                name: "Bangladesh Tax Digitization",
-                category: "web",
+                name: "Bangladesh Tax Digitization - Tax Collection Platform",
+                category: ["web", "mobile"],
                 role: "Full-Stack Developer",
                 technologies: ["Django", "NuxtJS", "SQLite", "React Native"],
                 description: [
@@ -93,32 +88,27 @@ class PortfolioApp {
                     "Implemented features for users to check tax information using holding numbers.",
                     "Provided a mobile application for volunteers to collect data for holding taxes."
                 ],
-                link: "https://bdhousingtax.com/",
-                featured: false,
-                icon: "fa-calculator"
+                webLink: "https://bdhousingtax.com/",
+                mobileLink: "https://play.google.com/store/apps/details?id=com.sajibsd013.bdhousingtax",
             },
             {
-                name: "CV Builder",
-                category: "web",
-                technologies: ["Vue.js", "TypeScript", "CSS", "JavaScript", "SCSS"],
+                name: "CV Builder - a Resume Builder",
+                category: ["web"],
+                technologies: ["NuxtJS", "Django", "SQLite"],
                 description: [
                     "Provided an array of options to customize a CV's content and appearance, giving users flexibility to create a document that meets their needs."
                 ],
-                link: "https://github.com/sajibsd013/draggable-ui-work",
-                featured: false,
-                icon: "fa-file-pdf-o"
+                gitLink: "https://github.com/sajibsd013/draggable-ui-work",
             },
             {
-                name: "E-Learning Web App",
-                category: "web",
+                name: "E-Learning - a Learning Management System",
+                category: ["web"],
                 technologies: ["PHP", "JavaScript", "MySQL"],
                 description: [
                     "Created an E-learning web app using HTML, CSS, Bootstrap for frontend design.",
                     "Implemented JavaScript for interactivity, Ajax for asynchronous requests, PHP for server-side scripting, and MySQL for database management."
                 ],
-                link: "https://github.com/sajibsd013/E-learning",
-                featured: false,
-                icon: "fa-graduation-cap"
+                gitLink: "https://github.com/sajibsd013/E-learning",
             }
         ];
 
@@ -126,7 +116,7 @@ class PortfolioApp {
         this.state.skills = {
             programming_Languages: {
                 title: "Programming Languages",
-                items: ["Python", "JavaScript", "Go", "PHP"],
+                items: ["Python", "JavaScript", "Go", "PHP", "TypeScript"],
                 icon: "fa-code"
             },
             web_Frameworks: {
@@ -136,12 +126,12 @@ class PortfolioApp {
             },
             database_Management: {
                 title: "Database Management",
-                items: ["MySQL", "SQLite"],
+                items: ["MySQL", "SQLite", "PostgreSQL", "MongoDB"],
                 icon: "fa-database"
             },
             tools_and_Platforms: {
                 title: "Tools & Platforms",
-                items: ["Odoo", "Git", "GitHub", "Docker"],
+                items: ["Odoo", "Git", "GitHub", "Docker", "Firebase"],
                 icon: "fa-cogs"
             },
             soft_Skills: {
@@ -354,7 +344,7 @@ class PortfolioApp {
 
         const filteredProjects = this.state.filterCategory === 'all'
             ? this.state.projects
-            : this.state.projects.filter(p => p.category === this.state.filterCategory);
+            : this.state.projects.filter(p => p.category.includes(this.state.filterCategory));
 
         filteredProjects.forEach((project, index) => {
             const projectCard = document.createElement('div');
@@ -377,9 +367,17 @@ class PortfolioApp {
                         ${project.description.map(desc => `<li>${desc}</li>`).join('')}
                     </ul>
                 </div>
-                <div class="project-footer">
-                    <a href="${project.link}" target="_blank" class="btn-project">
-                        <span>View Project</span>
+                <div class="project-footer ">
+                    <a href="${project.mobileLink}" target="_blank" class="btn-project me-5 ${project.mobileLink ? '' : 'd-none'}" >
+                        <span>Mobile App</span>
+                        <i class="fa fa-external-link"></i>
+                    </a>
+                    <a href="${project.gitLink}" target="_blank" class="btn-project me-5 ${project.gitLink ? '' : 'd-none'}">
+                        <span>Source Code</span>
+                        <i class="fa fa-external-link"></i>
+                    </a>
+                    <a href="${project.webLink}" target="_blank" class="btn-project me-5 ${project.webLink ? '' : 'd-none'}">
+                        <span>Web App</span>
                         <i class="fa fa-external-link"></i>
                     </a>
                 </div>
