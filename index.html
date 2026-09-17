@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Sajib Sutradhar - Software Engineer Portfolio | Full-Stack Developer specializing in Python, JavaScript, Django, and NuxtJS" />
+  <meta name="description" content="Sajib Sutradhar is a full-stack software engineer in Sylhet, Bangladesh, specializing in Python, Django, FastAPI, JavaScript, NuxtJS, Vue, and React." />
   <meta name="author" content="Sajib Sutradhar" />
   <meta name="keywords" content="Software Engineer, Full-Stack Developer, Python, JavaScript, Django, NuxtJS, Web Development" />
 
@@ -27,6 +27,9 @@
         --secondary-color: #34d399;
         --border-color: #1e293b;
         --nav-bg: rgba(11, 15, 25, 0.9);
+    }
+    @media (max-width: 900px) and (min-width: 769px) {
+        .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     * {
@@ -150,7 +153,7 @@
         align-items: center;
         gap: 40px;
         padding: 60px 0 40px 0; 
-        background: radial-gradient(circle at center, rgba(56, 189, 248, 0.06) 0%, transparent 80%);
+        background: radial-gradient(circle at 12% 20%, rgba(56, 189, 248, 0.14) 0%, transparent 42%), radial-gradient(circle at 90% 70%, rgba(52, 211, 153, 0.08) 0%, transparent 35%);
         border-bottom: 1px solid var(--border-color);
         margin-bottom: 10px;
         text-align: left;
@@ -191,10 +194,16 @@
         100% { transform: scale(1.03); opacity: 0.4; box-shadow: 0 0 25px var(--primary-color); }
     }
 
-    h1 { color: var(--text-white); font-size: 2.8rem; font-weight: 800; margin-bottom: 5px; letter-spacing: -1px; text-transform: uppercase; }
+    h1 { color: var(--text-white); font-size: clamp(2.3rem, 5vw, 3.7rem); font-weight: 800; margin-bottom: 5px; letter-spacing: -1.5px; text-transform: uppercase; line-height: 1.08; }
     h1 .text-primary { color: var(--primary-color); }
     .subtitle { color: var(--primary-color); font-size: 1.25rem; font-weight: 600; margin-bottom: 15px; }
     .hero-desc { font-size: 0.95rem; color: var(--text-color); margin-bottom: 25px; max-width: 680px; text-align: justify; }
+    .hero-location { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    .hero-location i { color: var(--secondary-color); }
+    .contact-row { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 22px; }
+    .contact-row a { color: #cbd5e1; font-size: 0.88rem; text-decoration: none; }
+    .contact-row a:hover { color: var(--primary-color); }
+    .contact-row i { color: var(--primary-color); margin-right: 6px; }
 
     /* Stats Box Grid Styling from Image */
     .stats-container {
@@ -275,8 +284,8 @@
     .timeline-item li::before, .project-card li::before { content: "→"; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
 
     /* Touch-Optimized Projects Grid Layout */
-    .projects-grid { display: grid;  gap: 20px; }
-    .project-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 25px; }
+    .projects-grid {  display: flex; flex-direction: column; gap: 20px;}
+    .project-card { background: linear-gradient(145deg, rgba(19, 28, 46, 0.98), rgba(15, 23, 42, 0.9)); border: 1px solid var(--border-color); border-radius: 14px; padding: 25px; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
     
     .project-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 15px; }
     .project-title { color: var(--text-white); font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
@@ -335,6 +344,7 @@
         .stats-container { justify-content: center; }
         .social-icons { justify-content: center; }
         .project-header { flex-direction: column; align-items: flex-start; }
+        .projects-grid { grid-template-columns: 1fr; }
         .project-links { width: 100%; }
         .project-links a { width: 100%; justify-content: center; }
         .hamburger { display: block; }
@@ -375,6 +385,7 @@
         <ul class="nav-menu" id="navMenu">
             <li><a href="#about" class="menu-link">About</a></li>
             <li><a href="#experience" class="menu-link">Experience</a></li>
+            <li><a href="#education" class="menu-link">Education</a></li>
             <li><a href="#projects" class="menu-link">Projects</a></li>
             <li><a href="#skills" class="menu-link">Skills</a></li>
         </ul>
@@ -386,11 +397,21 @@
         <div class="hero-content">
             <h1>Sajib <span class="text-primary">Sutradhar</span></h1>
             <div class="subtitle">
-                Software Engineer | Python, JavaScript
+                Full-Stack Software Engineer <span aria-hidden="true">·</span> Python & JavaScript
             </div>
+            <div class="hero-location"><i class="fa fa-map-marker"></i> Sylhet, Bangladesh</div>
             <p class="hero-desc">
-                Experienced Software Engineer with over 4 years of hands-on experience in Python, JavaScript, and Odoo ERP systems. Proven track record of building complete web and mobile applications across different industries, including large-scale R&D projects funded by the EU Horizon program, UK-based service marketplaces, and digital healthcare platforms. Skilled at turning complex business logic and large data into simple, user-friendly dashboards, with deep expertise in system performance benchmarking, automated workflow management, and secure third-party API integrations (like Stripe). A supportive team player and coding instructor who loves mentoring students, conducting code reviews, and writing clean, reliable code to solve real-world problems.
+              Full-Stack Software Engineer with 4+ years of experience building scalable web applications, RESTful APIs, and
+cross-platform systems. Proven expertise in architecting robust Python (Django/FastAPI) backends and intuitive
+JavaScript (NuxtJS/Vue/React) frontends. Specialized in data-heavy R&D platforms (EU Horizon), Digital Twin models
+for ORC systems, complex database architectures, and secure third-party integrations (Stripe). Experienced in
+bridging complex engineering logic with user-centric dashboards while conducting code reviews and mentoring
+developers.
             </p>
+            <div class="contact-row">
+                <a href="tel:+8801771147384"><i class="fa fa-phone"></i>+880 1771 147384</a>
+                <a href="mailto:sajibsd013@gmail.com"><i class="fa fa-envelope"></i>sajibsd013@gmail.com</a>
+            </div>
             
             <div class="stats-container">
                 <div class="stat-box">
@@ -408,8 +429,8 @@
             </div>
 
             <div class="social-icons">
-                <a href="https://github.com/sajibsd013" target="_blank"><i class="fa fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/sajibsd013" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/sajibsd013" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sajibsd013" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
                 <a href="mailto:sajibsd013@gmail.com"><i class="fa fa-envelope"></i></a>
             </div>
         </div>
@@ -426,10 +447,11 @@
                 <div class="job-title">Software Engineer</div>
                 <div class="company-meta">Indetechs Software Limited, Dhaka, Bangladesh | June 2022 - Present</div>
                 <ul>
-                    <li>Developed and maintained high-performing web applications using Odoo, Python (Django), and JavaScript (NuxtJS).</li>
-                    <li>Served as a key full-stack developer for 7+ major R&D projects funded by the EU Horizon program, transforming complex scientific logic such as Thermodynamic Analysis, Waste Heat Calculations, and Cost Performance modeling into user-friendly software features.</li>
-                    <li>Programmed integrated Life Cycle Assessment (LCA) modules to enable industrial, renewable, and geothermal energy sectors to quantify and minimize carbon footprints.</li>
-                    <li>Conducted regular code reviews to maintain high-quality code, system reliability, and clean architecture.</li>
+                    <li>Collaborated within a cross-functional engineering team to deliver 7+ EU Horizon-funded R&D web applications using Django, NuxtJS, NextJS, and Odoo.</li>
+                    <li>Implemented full-stack architecture for Digital Twin and Decision Support Systems, connecting simulation APIs with real-time analytics dashboards.</li>
+                    <li>Modeled SimaPro product stages for Life Cycle Assessment modules, building REST APIs and dashboards to track enterprise carbon footprints.</li>
+                    <li>Architected database schemas and automated Python/Odoo engines to track industrial equipment, map failure modes, and generate frequency-based maintenance work orders.</li>
+                    <li>Participated in peer code reviews and mentored junior developers to promote clean, modular architecture.</li>
                 </ul>
             </div>
             <div class="timeline-item">
@@ -444,7 +466,7 @@
         </div>
     </section>
 
-    <section class="reveal">
+    <section id="education" class="reveal">
         <h2><i class="fa fa-graduation-cap"></i> Education</h2>
         <div class="timeline">
             <div class="timeline-item" style="margin-bottom: 15px;">
@@ -493,67 +515,48 @@
 
         loadData() {
             this.skills = {
-                programming_Languages: { title: "Programming Languages", items: ["Python", "JavaScript", "Go", "PHP", "SQL"], icon: "fa-code" },
-                web_Frameworks: { title: "Web & Mobile Frameworks", items: ["Django", "FastAPI", "NuxtJS", "Vue.js", "React", "NextJS", "Odoo OWL Framework", "React Native"], icon: "fa-desktop" },
-                database_Management: { title: "Databases & Architecture", items: ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "RESTful APIs", "MVC"], icon: "fa-database" },
-                tools_and_Platforms: { title: "Tools & Platforms", items: ["Odoo ERP", "Git", "GitHub", "Docker", "CI/CD pipelines", "Linux"], icon: "fa-wrench" }
+                programmingLanguages: { title: "Programming Languages", items: ["Python", "JavaScript", "SQL", "TypeScript"], icon: "fa-code" },
+                backendFrameworks: { title: "Backend Frameworks", items: ["Django", "Django REST Framework", "FastAPI"], icon: "fa-server" },
+                frontendFrameworks: { title: "Frontend & Mobile", items: ["NuxtJS", "Vue.js", "React", "NextJS", "Tailwind", "React Native"], icon: "fa-desktop" },
+                databasesArchitecture: { title: "Databases & Architecture", items: ["PostgreSQL", "MySQL", "MongoDB", "System Architecture"], icon: "fa-database" },
+                devopsTools: { title: "DevOps & Tools", items: ["Docker", "CI/CD Pipelines", "Git", "Linux", "Azure", "AWS"], icon: "fa-wrench" }
             };
 
             this.projects = [
                 {
-                    name: "Decision Support System Platforms for Renewable Energy",
-                    technologies: ["Django REST Framework", "NuxtJS", "Odoo", "OWL Framework", "PostgreSQL"],
+                    name: "CoreWorkers UK",
+                    technologies: ["Django REST Framework", "NuxtJS", "MySQL", "React Native", "Stripe"],
                     description: [
-                        "Served as a core developer for multiple major R&D tools funded by the EU Horizon program, specifically designed for the renewable and geothermal energy sectors.",
-                        "Developed integrated Life Cycle Assessment (LCA) modules to measure carbon footprints and evaluate environmental sustainability.",
-                        "Programmed specialized engineering backends for Thermodynamic Modeling, Waste Heat Calculations, and cost performance evaluation.",
-                        "Contributed to developing cost analysis and environmental impact assessment modules for both single and multiple welding processes."
+                        "Independently architected and built a UK recruitment and service-booking marketplace.",
+                        "Integrated Stripe for multi-currency payments, secure checkout, and automated booking workflows.",
+                        "Developed a companion React Native app for a consistent cross-platform experience."
                     ],
-                    icon: "fa-line-chart"
-                },
-                {
-                    name: "ORC Condition Monitoring & Maintenance Platform",
-                    technologies: ["Odoo", "OWL Framework", "PostgreSQL"],
-                    description: [
-                        "Core Engineer & Technical Author for an EU Horizon geothermal energy project; built the entire software system alone and wrote the official technical reports.",
-                        "Built the entire database and automated engine to track industrial equipment, map technical failure modes, and dynamically generate maintenance work orders based on frequency.",
-                        "Developed a responsive UI and interactive dashboards using Odoo’s OWL framework, incorporating visual pie charts to easily analyze asset trends and statistics."
-                    ],
-                    icon: "fa-cogs"
+                    webLink: "https://coreworkersuk.com/",
+                    icon: "fa-briefcase",
+                    label: "Live Link"
                 },
                 {
                     name: "Software Carbon Emissions Calculator",
-                    technologies: ["FastAPI", "NuxtJS", "GitHub API", "PostgreSQL", "Green Software Principles"],
+                    technologies: ["FastAPI", "NuxtJS", "GitHub API", "Green Software"],
                     description: [
-                        "Developed an R&D tool to calculate and audit the total carbon footprint (kgCO₂eq) across the software lifecycle.",
-                        "Built a high-performance FastAPI backend implementing the international Software Carbon Intensity (SCI) formula.",
-                        "Integrated GitHub API to fetch real-time repository data, pipeline executions, and deployment history for carbon analysis."
+                        "Designed an automated audit tool that applies Software Carbon Intensity (SCI) formulas to repository data.",
+                        "Integrated GitHub APIs to parse deployment pipelines, commit logs, and execution metrics into sustainability reports."
                     ],
                     webLink: "https://software-dss.sajibsutradhar.dev/",
-                    icon: "fa-leaf"
+                    icon: "fa-leaf",
+                    label: "Live Tool"
                 },
                 {
-                    name: "CoreWorkers UK - Recruitment & Service Booking Platform",
-                    technologies: ["Django REST Framework", "NuxtJS", "MySQL", "React Native", "Stripe API"],
+                    name: "Sasthosebok.com",
+                    technologies: ["Django REST Framework", "NuxtJS", "MySQL", "React Native WebView"],
                     description: [
-                        "Built a service booking and job portal platform for the UK market, covering categories like Health & Social Care and commercial/domestic cleaning.",
-                        "Integrated Stripe payment gateway to handle secure online payments for service bookings and job applications.",
-                        "Developed both the web application and mobile app using React Native, making it fast and easy to use on all devices."
-                    ],
-                    webLink: "https://coreworkersuk.com/",
-                    icon: "fa-briefcase"
-                },
-                {
-                    name: "Sasthosebok - Digital Healthcare Marketplace",
-                    technologies: ["Django REST Framework", "NuxtJS", "SQLite", "React Native (WebView)"],
-                    description: [
-                        "Built an on-demand digital healthcare ecosystem supporting doctor appointments via Telemedicine (Video Call), Chambers, and Home visits.",
-                        "Built an onboarding portal for doctors and nurses, and integrated an e-commerce marketplace to sell medical equipment.",
-                        "Integrated a comprehensive medicine database, allowing users to easily search for medications by their generic names.",
-                        "Developed both the web application and mobile app using a React Native WebView wrapper, ensuring a fast and smooth launch on the Google Play Store."
+                        "Delivered a digital healthcare ecosystem for telemedicine, chamber visits, and home services.",
+                        "Built doctor and nurse onboarding portals, a generic medicine search, and a medical-equipment store.",
+                        "Released a responsive React Native WebView mobile application for patient management."
                     ],
                     webLink: "https://sasthosebok.com",
-                    icon: "fa-heartbeat"
+                    icon: "fa-heartbeat",
+                    label: "Live Link"
                 }
             ];
         }
@@ -580,7 +583,7 @@
                         <div class="project-title"><i class="fa ${project.icon}"></i> ${project.name}</div>
                         ${project.webLink ? `
                             <div class="project-links">
-                                <a href="${project.webLink}" target="_blank"><i class="fa fa-external-link"></i> Live Tool</a>
+                                <a href="${project.webLink}" target="_blank" rel="noopener noreferrer"><i class="fa fa-external-link"></i> ${project.label || 'Live Link'}</a>
                             </div>
                         ` : ''}
                     </div>
